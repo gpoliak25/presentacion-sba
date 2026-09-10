@@ -2,8 +2,11 @@
 
 Dos piezas para la misma conversación de producto: el **brief** que define qué construir y la **demo** que lo muestra funcionando.
 
+**En línea:** https://presentacion-sba-eis.vercel.app — portada, `/demo` y `/brief`.
+
 | Archivo | Qué es |
 |---|---|
+| [`index.html`](index.html) | Portada con los dos accesos. Es lo que se sirve en la raíz del sitio. |
 | [`Brief_Producto_Capa_Semantica_Ejecutiva.html`](Brief_Producto_Capa_Semantica_Ejecutiva.html) | Presentación de 15 láminas para el Product Owner: propósito, usuarios, arquitectura, modelo semántico, alcance del MVP, backlog, métricas del piloto y decisiones abiertas. Se navega con las flechas del teclado. |
 | [`demo/index.html`](demo/index.html) | Demo interactiva del producto sobre un cliente ficticio con JD Edwards. Un solo archivo, sin dependencias de build. |
 

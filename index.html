@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capa Semántica Ejecutiva · EISPLUS</title>
+<meta name="description" content="Brief de producto y demo interactiva de la Capa Semántica Ejecutiva, de la UEN Strategic Business Advisory de EISPLUS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#FAFBF9; --surface-3:#EDF1EC;
+  --line:#DEE4DD; --line-soft:#EAEEE9;
+  --ink:#181D1B; --ink-2:#59635C; --ink-3:#89928B;
+  --accent:#2F8B48; --accent-bright:#3BA855; --accent-wash:#E8F4EC; --warn-mark:#EC8D28;
+  --shadow:0 1px 2px rgba(24,29,27,.05), 0 8px 24px -14px rgba(24,29,27,.22);
+  --shadow-lift:0 2px 8px rgba(24,29,27,.08), 0 28px 52px -26px rgba(24,29,27,.36);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1412; --surface:#171D1A; --surface-2:#1C2320; --surface-3:#232B27;
+    --line:#2C3531; --line-soft:#232B27;
+    --ink:#E9EFEA; --ink-2:#9EA9A1; --ink-3:#717C75;
+    --accent:#4FBE69; --accent-bright:#5FCE79; --accent-wash:#17291D; --warn-mark:#F0A045;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+    --shadow-lift:0 2px 8px rgba(0,0,0,.5), 0 28px 52px -26px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1412; --surface:#171D1A; --surface-2:#1C2320; --surface-3:#232B27;
+  --line:#2C3531; --line-soft:#232B27;
+  --ink:#E9EFEA; --ink-2:#9EA9A1; --ink-3:#717C75;
+  --accent:#4FBE69; --accent-bright:#5FCE79; --accent-wash:#17291D; --warn-mark:#F0A045;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+  --shadow-lift:0 2px 8px rgba(0,0,0,.5), 0 28px 52px -26px rgba(0,0,0,.8);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink); min-height:100vh;
+  font-family:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+}
+h1,h2,h3{margin:0; line-height:1.18; text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent-bright); outline-offset:3px; border-radius:6px}
+.wrap{width:100%; max-width:940px; margin:0 auto; padding-inline:24px}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+
+header{padding-block:56px 0}
+.mark{display:flex; align-items:center; gap:11px; margin-bottom:34px}
+.mark i{width:30px; height:30px; border-radius:8px; background:linear-gradient(140deg,var(--accent-bright),var(--warn-mark)); display:grid; place-items:center; color:#fff; font-style:normal; font-weight:700; font-size:12px; font-family:"IBM Plex Mono",monospace}
+.mark b{font-size:14px; font-weight:600}
+.mark span{display:block; font-size:11.5px; color:var(--ink-3)}
+h1{font-size:clamp(30px,5vw,44px); font-weight:600; letter-spacing:-.028em; margin-top:8px}
+.lead{font-family:"IBM Plex Serif",Georgia,serif; font-size:clamp(17px,2.2vw,19px); color:var(--ink-2); margin-top:16px; max-width:56ch; line-height:1.5}
+
+main{padding-block:40px 0; flex:1}
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(288px,1fr)); gap:16px}
+.card{
+  display:flex; flex-direction:column; gap:12px; text-decoration:none;
+  background:var(--surface); border:1px solid var(--line); border-radius:15px;
+  padding:22px 22px 20px; box-shadow:var(--shadow);
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+.card:hover{transform:translateY(-3px); box-shadow:var(--shadow-lift); border-color:var(--accent-bright)}
+.card h2{font-size:19px; font-weight:600; letter-spacing:-.012em}
+.card p{font-size:14.5px; color:var(--ink-2)}
+.card.primary{border-color:color-mix(in srgb,var(--accent-bright) 42%,var(--line)); background:linear-gradient(180deg,var(--accent-wash),var(--surface) 62%)}
+.badge{display:inline-flex; align-items:center; gap:6px; align-self:flex-start; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; border-radius:20px; padding:3px 9px; background:var(--surface-3); color:var(--ink-2)}
+.card.primary .badge{background:var(--accent); color:#fff}
+.card ul{margin:2px 0 0; padding-left:17px; font-size:13.5px; color:var(--ink-2); line-height:1.62}
+.go{margin-top:auto; padding-top:14px; font-size:13.5px; font-weight:600; color:var(--accent); display:flex; align-items:center; gap:7px}
+.card:hover .go span{transform:translateX(3px)}
+.go span{transition:transform .16s ease; display:inline-block}
+
+.strip{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+.pill{display:inline-flex; align-items:center; gap:7px; background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:7px 12px; font-size:13px; color:var(--ink-2); text-decoration:none}
+.pill:hover{border-color:var(--accent-bright); color:var(--ink)}
+.pill .k{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3)}
+
+footer{padding-block:44px 40px; margin-top:44px; border-top:1px solid var(--line-soft)}
+footer p{font-size:13px; color:var(--ink-3); max-width:62ch; line-height:1.6}
+footer p + p{margin-top:9px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="mark"><i>CS</i><div><b>EISPLUS</b><span>UEN Strategic Business Advisory</span></div></div>
+    <p class="eyebrow">Nombre de trabajo · septiembre 2026</p>
+    <h1>Capa Semántica Ejecutiva</h1>
+    <p class="lead">Un asistente que responde preguntas de directorio con evidencia, explicación causal y recomendación. Acá están las dos piezas de la conversación de producto: el brief que define qué construir y la demo que lo muestra funcionando.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="cards">
+
+      <a class="card primary" href="/demo/">
+        <span class="badge">Demo interactiva</span>
+        <h2>El producto funcionando</h2>
+        <p>Sobre un cliente ficticio con JD Edwards, en el cierre de septiembre.</p>
+        <ul>
+          <li>Panel con árbol de KPIs y alertas por umbral</li>
+          <li>Seis preguntas guionadas, con cifra, causa y playbook</li>
+          <li>Trazabilidad: pregunta → consulta → datos → texto</li>
+          <li>Editor del modelo semántico del consultor</li>
+          <li>Guion de demo de siete pasos que navega solo</li>
+        </ul>
+        <span class="go">Abrir la demo <span>→</span></span>
+      </a>
+
+      <a class="card" href="/brief">
+        <span class="badge">Brief de producto</span>
+        <h2>Qué construir y en qué orden</h2>
+        <p>Quince láminas para el Product Owner. Se navega con las flechas del teclado.</p>
+        <ul>
+          <li>Qué es y qué no es el producto</li>
+          <li>Usuarios, arquitectura y modelo semántico</li>
+          <li>Alcance del MVP y backlog por épica</li>
+          <li>Métricas del piloto y decisiones abiertas</li>
+        </ul>
+        <span class="go">Abrir el brief <span>→</span></span>
+      </a>
+
+    </div>
+
+    <div class="strip">
+      <a class="pill" href="https://github.com/gpoliak25/presentacion-sba"><span class="k">repo</span> Código en GitHub</a>
+      <span class="pill"><span class="k">demo</span> Un archivo, sin build</span>
+      <span class="pill"><span class="k">datos</span> Cliente ficticio</span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Las cifras de la demo corresponden a Manufacturas Andes S.A., una empresa inventada para la demostración. No hay datos de clientes reales.</p>
+    <p>«Capa Semántica Ejecutiva» es el nombre de trabajo del producto; la marca comercial se define aparte. Material de trabajo interno de EISPLUS.</p>
+  </div>
+</footer>
+
+</body>
+</html>
